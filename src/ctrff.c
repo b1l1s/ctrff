@@ -24,7 +24,7 @@ uint32_t ctrff_init(void*(*alloc)(size_t))
 	if(ctrff)
 	{
 		memset(ctrff, 0, sizeof(ctrff_s));
-		res = f_mount(&ctrff->fs[0], "0:", 1);
+		res = f_mount(&ctrff->fs[0], "sdmc:", 1);
 	}
 
 	return res;
@@ -34,7 +34,7 @@ uint32_t ctrff_nand_mount(const ctrff_nand_ctx* ctx)
 {
 	memcpy(&nand_ctx, ctx, sizeof(ctrff_nand_ctx));
 
-	return f_mount(&ctrff->fs[1], "1:", 1);
+	return f_mount(&ctrff->fs[1], "nand:", 1);
 }
 
 uint32_t ctrff_nand_read(void* buffer, uint32_t sector, size_t count)
@@ -72,7 +72,7 @@ uint32_t ctrff_emunand_mount(const ctrff_nand_ctx* ctx)
 {
 	memcpy(&emunand_ctx, ctx, sizeof(ctrff_nand_ctx));
 
-	return f_mount(&ctrff->fs[2], "2:", 1);
+	return f_mount(&ctrff->fs[2], "emu0:", 1);
 }
 
 uint32_t ctrff_emunand_read(void* buffer, uint32_t sector, size_t count)

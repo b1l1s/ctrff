@@ -285,7 +285,7 @@ InitSD:
 	ldr     r2, =0x10006100
 	str     r4, [r0,#0x24]
 	strh    r3, [r0,#0x1C]
-	str     r3, [r0,#0x20]	@ is_not_sdhc
+	str     r3, [r0,#0x20]	@ is_sdhc
 	str     r3, [r0,#0x28]
 	str     r3, [r0,#0x2C]
 	str     r3, [r0,#0x34]
@@ -501,7 +501,7 @@ loc_80A3B36:
 	mov     r2, #0          @ args
 	add     r0, r4, #0      @ ctx
 	ldr     r1, =0x10602    @ cmd
-	str     r3, [r4,#0x20]	@ is_not_sdhc
+	str     r3, [r4,#0x20]	@ is_sdhc
 	bl      sdmmc_send_command
 	ldr     r2, [r4,#8]
 	mov     r5, #4
@@ -954,7 +954,7 @@ dword_80A6F24:
 dword_80A6F3C:
 	.long 0
 dword_80A6F40:
-	.long 0		@ is_not_sdhc
+	.long 0		@ is_sdhc
 dword_80A6F44:
 	.long 0
 dword_80A6F48:
@@ -977,7 +977,7 @@ dword_80A6F58:
 dword_80A6F74:
 	.long 0
 dword_80A6F78:
-	.long 0		@ is_not_sdhc
+	.long 0		@ is_sdhc
 dword_80A6F7C:
 	.long 0
 dword_80A6F80:

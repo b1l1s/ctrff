@@ -145,8 +145,8 @@
 /* Number of volumes (logical drives) to be used. */
 
 
-#define _STR_VOLUME_ID	0
-#define _VOLUME_STRS	"sdmc","nand","emu0","emu1","SD2","USB1","USB2","USB3"
+#define _STR_VOLUME_ID	1
+#define _VOLUME_STRS	"SDMC","NAND","EMU0","EMU1"
 /* _STR_VOLUME_ID option switches string volume ID feature.
 /  When _STR_VOLUME_ID is set to 1, also pre-defined strings can be used as drive
 /  number in the path name. _VOLUME_STRS defines the drive ID strings for each
