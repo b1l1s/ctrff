@@ -13,7 +13,7 @@ OBJ_DIR:=obj
 LIB_DIR:=lib
 DEP_DIR:=obj
 
-INCPATHS=-Iinclude -I../ctr/include
+INCPATHS=-Iinclude/ctrff
 
 THUMBFLAGS:=-mthumb -mthumb-interwork
 CFLAGS:=-std=gnu99 -g -Os -mword-relocations -fomit-frame-pointer -ffast-math $(INCPATHS) $(THUMBFLAGS)
@@ -28,7 +28,7 @@ OBJS+=$(patsubst $(SRC_DIR)/%.S, $(OBJ_DIR)/%.o, $(wildcard $(SRC_DIR)/*.S))
 OUT_DIR:=$(LIB_DIR) $(OBJ_DIR) $(OBJ_DIR)/option
 LIB:=$(LIB_DIR)/lib$(LIBNAME).a
 
-.PHONY: clean
+.PHONY: clean all install
 
 all: $(LIB)
 
@@ -51,6 +51,10 @@ dirs: ${OUT_DIR}
 
 ${OUT_DIR}:
 	mkdir -p ${OUT_DIR}
+
+install: all
+	cp -r include/* $(DEVKITARM)/arm-none-eabi/include
+	cp $(LIB) $(DEVKITARM)/arm-none-eabi/lib
 
 clean:
 	rm -rf lib/* obj/*
