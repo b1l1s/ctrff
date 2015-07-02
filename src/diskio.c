@@ -66,7 +66,7 @@ DRESULT disk_read (
 		res = sdmmc_sdcard_readsectors(sector, count, buff);
 		break;
 	case 1:
-		//res = ctrff_nand_read(buff, sector, count);
+		res = ctrff_nand_read(buff, sector, count);
 		break;
 	case 2:
 		// Emunand

@@ -59,9 +59,9 @@ uint32_t ctrff_nand_write(const void* buffer, uint32_t sector, size_t count)
 
 	if(nand_ctx.toRaw && nand_ctx.encrypt)
 	{
-		//uint32_t rawSector = nand_ctx.toRaw(nand_ctx.data, sector);
+		uint32_t rawSector = nand_ctx.toRaw(nand_ctx.data, sector);
 
-		//nand_ctx.encrypt(nand_ctx.data, buffer, sector, count);
+		nand_ctx.encrypt(nand_ctx.data, buffer, sector, count);
 		//res = sdmmc_nand_writesectors(rawSector, count, buffer);
 	}
 
@@ -97,9 +97,9 @@ uint32_t ctrff_emunand_write(const void* buffer, uint32_t sector, size_t count)
 
 	if(emunand_ctx.toRaw && emunand_ctx.encrypt)
 	{
-		//uint32_t rawSector = emunand_ctx.toRaw(emunand_ctx.data, sector);
+		uint32_t rawSector = emunand_ctx.toRaw(emunand_ctx.data, sector);
 
-		//emunand_ctx.encrypt(emunand_ctx.data, buffer, rawSector, count);
+		emunand_ctx.encrypt(emunand_ctx.data, buffer, rawSector, count);
 		//res = sdmmc_sdcard_writesectors(rawSector, count, buffer);
 	}
 
