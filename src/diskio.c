@@ -126,6 +126,6 @@ DRESULT disk_ioctl (
 	void *buff		/* Buffer to send/receive control data */
 )
 {
-	return RES_PARERR;
+	return RES_OK;
 }
 #endif
